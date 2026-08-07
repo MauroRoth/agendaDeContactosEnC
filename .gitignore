@@ -1,0 +1,12 @@
+# Ejecutable
+agendaDeContactos
+
+# Archivos de datos generados en tiempo de ejecución
+*.dat
+*.csv
+
+# Archivos objeto (si en algún momento compilás con -c)
+*.o
+
+# Configuración del editor (local, no del proyecto)
+.vscode/
