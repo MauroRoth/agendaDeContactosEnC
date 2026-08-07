@@ -14,5 +14,6 @@ void actualizarContacto(Contacto contactos[], int cantidad, int indice);
 void eliminarContacto(Contacto contactos[], int cantidad, int indice);
 void ordenarContactos(Contacto contactos[], int cantidad, int indice);
 void buscarContacto(Contacto contactos[], int cantidad, char nombre[]);
+void cargarContactosDePrueba(Contacto contactos[], int *cantidad);
 
 #endif

@@ -11,14 +11,14 @@ int main(){
     int opcion;
 
     do {
-        printf("\n=== AGENDA ===\n");
-        printf("1. Agregar Contacto\n");
-        printf("2. Listar Contactos\n");
-        printf("3. Actualizar Contacto\n");
-        printf("4. Eliminar Contacto\n");
-        printf("5. Buscar Contacto\n");
-        printf("6. Salir\n");
-        printf("Opcion: ");
+        printf("\n\t\t=== AGENDA ===\n");
+        printf("\t\t1. Agregar Contacto\n");
+        printf("\t\t2. Listar Contactos\n");
+        printf("\t\t3. Actualizar Contacto\n");
+        printf("\t\t4. Eliminar Contacto\n");
+        printf("\t\t5. Buscar Contacto\n");
+        printf("\t\t0. Salir\n");
+        printf("\t\tOpcion: ");
         scanf("%d", &opcion);
 
         switch(opcion) {
@@ -27,9 +27,11 @@ int main(){
             case 3: actualizarContacto(contactos, cantidad, indice); break;
             case 4: eliminarContacto(contactos, cantidad, indice); break;
             case 5: buscarContacto(contactos, cantidad, nombre); break;
+            case 9: cargarContactosDePrueba(contactos, &cantidad); break;   
+            case 0: printf("salida del programa!!!"); break;
         }
 
-    } while(opcion != 5);
-    guardarContactosBinario(contactos, cantidad);
+    } while(opcion !=0);
+    //guardarContactosBinario(contactos, cantidad);
     return 0;
 }
