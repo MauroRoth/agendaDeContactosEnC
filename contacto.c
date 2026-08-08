@@ -36,10 +36,12 @@ void listarContactos(Contacto contactos[], int cantidad){
         //printf("%d)",i+1);
         printf("%-20s %-15s %-25s\n", contactos[i].nombre, contactos[i].telefono, contactos[i].email);
     }
+    printf("\nPresione ENTER para continuar...");
+    getchar(); 
 }
 
 void actualizarContacto(Contacto contactos[], int cantidad, int indice){
-    printf("soy actualizarContacto");
+    printf("soy actualizarContacto\n");
 }
 void eliminarContacto(Contacto contactos[], int cantidad, int indice){
     printf("soy eliminarContacto");
