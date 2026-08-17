@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "persistencia.h"
 
-void guardarContactosBinario(Contacto contactos[], int cantidad) {
+void guardar_contactos_binario(Contacto contactos[], int cantidad) {
     FILE *archivo = fopen("contactos.dat", "wb");
     if (archivo == NULL) return;
     fwrite(&cantidad, sizeof(int), 1, archivo);         // guardo cuántos hay
@@ -9,7 +9,7 @@ void guardarContactosBinario(Contacto contactos[], int cantidad) {
     fclose(archivo);
 }
 
-int cargarContactosBinario(Contacto contactos[]) {
+int cargar_contactos_binario(Contacto contactos[]) {
     FILE *archivo = fopen("contactos.dat", "rb");
     if (archivo == NULL) return 0;
     int cantidad;

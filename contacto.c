@@ -1,8 +1,19 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "contacto.h"
 
-void agregarContacto(Contacto contactos[], int *cantidad){
+
+void limpiar_consola() {
+    #ifdef _WIN32
+        system("cls");
+    #else
+        system("clear");
+    #endif
+}
+
+void agregar_contacto(Contacto contactos[], int *cantidad){
+    limpiar_consola();
     printf("AGREGAR CONTACTO \n");
     
     char nombre[50];
@@ -16,41 +27,54 @@ void agregarContacto(Contacto contactos[], int *cantidad){
     char email[100];
     printf("Ingrese su Email: ");
     scanf("%s", email);
-
+    printf(" %s", "Contacto agregado !!!\n");
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
     Contacto contacto;
     strcpy(contacto.nombre,nombre);
     strcpy(contacto.telefono,telefono);
     strcpy(contacto.email,email);
 
+    printf("+-----------------------------------------------------------------+\n");
+    printf("%-20s %-15s %-25s\n", "Nombre", "Telefono", "Email");
+    printf("+-----------------------------------------------------------------+\n");
+    printf("%-20s %-15s %-25s\n", contacto.nombre, contacto.telefono, contacto.email);
     contactos[*cantidad] = contacto;
     (*cantidad)++;
+
+    printf("\nPresione ENTER para continuar...");
+    getchar(); 
 }
-void listarContactos(Contacto contactos[], int cantidad){
+
+void listar_contactos(Contacto contactos[], int cantidad){
+    limpiar_consola();
     printf("LISTA DE CONTACTOS \n");
     if (cantidad==0) {
         printf("No hay contactos cargados.\n");
-        return;
-    }
-    printf("%-20s %-15s %-25s\n", "Nombre", "Telefono", "Email");
-    for (int i = 0; i < cantidad; i++) {
-        //printf("%d)",i+1);
-        printf("%-20s %-15s %-25s\n", contactos[i].nombre, contactos[i].telefono, contactos[i].email);
+    } else {
+        printf("+-----------------------------------------------------------------+\n");
+        printf("%-4s %-20s %-15s %-25s\n", "Nº", "Nombre", "Telefono", "Email");
+        printf("+-----------------------------------------------------------------+\n");
+        for (int i = 0; i < cantidad; i++) {
+            printf("%-4d %-20s %-15s %-25s\n", i+1, contactos[i].nombre, contactos[i].telefono, contactos[i].email);
+        }
+        printf("+-----------------------------------------------------------------+\n");
     }
     printf("\nPresione ENTER para continuar...");
     getchar(); 
 }
 
-void actualizarContacto(Contacto contactos[], int cantidad, int indice){
+void actualizar_contacto(Contacto contactos[], int cantidad, int indice){
     printf("soy actualizarContacto\n");
 }
-void eliminarContacto(Contacto contactos[], int cantidad, int indice){
+void eliminar_contacto(Contacto contactos[], int cantidad, int indice){
     printf("soy eliminarContacto");
 }
-void buscarContacto(Contacto contactos[], int cantidad, char nombre[]){
+void buscar_contacto(Contacto contactos[], int cantidad, char nombre[]){
     printf("soy buscarContacto");
 }
 
-void cargarContactosDePrueba(Contacto contactos[], int *cantidad) {
+void cargar_contactos_de_prueba(Contacto contactos[], int *cantidad) {
     Contacto prueba[10] = {
         {"Ana Garcia",      "3624111111", "ana.garcia@mail.com"},
         {"Bruno Lopez",     "3624222222", "bruno.lopez@mail.com"},

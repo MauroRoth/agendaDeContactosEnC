@@ -3,7 +3,7 @@
 
 #include "contacto.h"
 
-void guardarContactosBinario(Contacto contactos[], int cantidad);
-int cargarContactosBinarios(Contacto contactos[]);
+void guardar_contactos_binario(Contacto contactos[], int cantidad);
+int cargar_contactos_binarios(Contacto contactos[]);
 
 #endif
